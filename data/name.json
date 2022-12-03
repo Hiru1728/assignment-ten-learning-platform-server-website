@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "name": "Office Management"
+    },
+    {
+        "id": "2",
+        "name": "Graphic Design"
+    },
+    {
+        "id": "3",
+        "name": "IELTS"
+    },
+    {
+        "id": "4",
+        "name": "GRE"
+    },
+    {
+        "id": "5",
+        "name": "Complete C Programming"
+    },
+    {
+        "id": "6",
+        "name": "ASP.NET"
+    },
+    {
+        "id": "7",
+        "name": "All Courses"
+    }
+]
