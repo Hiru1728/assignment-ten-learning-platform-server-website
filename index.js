@@ -15,11 +15,11 @@ app.get('/', (req, res) => {
     res.send('News API running')
 })
 
-app.get('/details-name', (req, res) => {
+app.get('/courses-name', (req, res) => {
     res.send(courses);
 })
 
-app.get('/name/:id', (req, res) => {
+app.get('/courses-name/:id', (req, res) => {
     const id = req.params.id;
     if (id === '7') {
         res.send(courses);
@@ -30,5 +30,15 @@ app.get('/name/:id', (req, res) => {
     }
 })
 
+app.get('/courses', (req, res) => {
+    res.send(courses);
+})
+
+app.get('/courses/:id', (req, res) => {
+    const id = req.params.id;
+    const selectedCourse = news.find(n => n._id === id);
+    res.send(selectedCourse);
+    console.log(req.params.id);
+})
 
 app.listen(port, () => console.log('Learning news server running on port', port))
