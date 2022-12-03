@@ -19,6 +19,16 @@ app.get('/details-name', (req, res) => {
     res.send(courses);
 })
 
+app.get('/name/:id', (req, res) => {
+    const id = req.params.id;
+    if (id === '7') {
+        res.send(courses);
+    }
+    else {
+        const selectedCourses = courses.find(n => n.id === id);
+        res.send(selectedCourses);
+    }
+})
 
 
 app.listen(port, () => console.log('Learning news server running on port', port))
