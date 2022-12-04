@@ -8,15 +8,15 @@ app.use(cors());
 
 const courses = require('./data/courses.json');
 // const course = require('./data/courses.json');
-
+const name = require('./data/name.json');
 
 
 app.get('/', (req, res) => {
-    res.send('News API running')
+    res.send('Courses API running')
 })
 
 app.get('/courses-name', (req, res) => {
-    res.send(courses);
+    res.send(name);
 })
 
 app.get('/courses-name/:id', (req, res) => {
@@ -25,7 +25,7 @@ app.get('/courses-name/:id', (req, res) => {
         res.send(courses);
     }
     else {
-        const selectedCourses = courses.find(n => n.id === id);
+        const selectedCourses = courses.filter(n => n.id === id);
         res.send(selectedCourses);
     }
 })
@@ -36,9 +36,16 @@ app.get('/courses', (req, res) => {
 
 app.get('/courses/:id', (req, res) => {
     const id = req.params.id;
-    const selectedCourse = news.find(n => n._id === id);
+    const selectedCourse = courses.find(n => n.id === id);
     res.send(selectedCourse);
-    console.log(req.params.id);
+    // console.log(req.params.id);
 })
 
-app.listen(port, () => console.log('Learning news server running on port', port))
+app.get('/checkout/:id', (req, res) => {
+    const id = req.params.id;
+    const selectedCourse = courses.find(n => n.id === id);
+    res.send(selectedCourse);
+    // console.log(req.params.id);
+})
+
+app.listen(port, () => console.log('Learning courses server running on port', port))
